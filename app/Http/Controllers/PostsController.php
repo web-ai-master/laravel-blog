@@ -20,7 +20,7 @@ class PostsController extends Controller
          //$posts = DB ::select('select * from posts');
          //$posts = Post::orderBy('title','desc')->take(1)->get();
          //$posts = Post::orderBy('title','desc')->get();
-         $posts = Post::orderBy('title','desc')->paginate(10);
+         $posts = Post::orderBy('created_at','desc')->paginate(10);
          return view('posts.index')->with('posts',$posts);
     }
 
@@ -47,7 +47,15 @@ class PostsController extends Controller
             'body' => 'required',
             'cover_image' => 'image|nullable|max:1999'
         ]);
+            // Create Post
+        $post = new Post;
+        $post->title = $request->input('title');
+        $post->body = $request->input('body');
+        $post->user_id = auth()->user()->id;
+        $post->cover_image = $fileNameToStore;
+        $post->save();
 
+        return redirect('/posts')->with('success', 'Post Created');
     }
 
     /**
