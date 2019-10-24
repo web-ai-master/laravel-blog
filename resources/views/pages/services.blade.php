@@ -1,12 +1,6 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends ('layouts.app')
 
-        <title>{{config('app.name','Laravel Blog')}}</title>
-    </head>
-    <body>
-       <h1>Services</h1>
-    </body>
-</html>
+@section ('content')
+   <h1>Services</h1>
+   <p>This is services page</p>
+@endsection
