@@ -7,6 +7,6 @@
         <title>{{config('app.name','Laravel Blog')}}</title>
     </head>
     <body>
-       <h1>Laravel</h1>
+       @yield('content')
     </body>
 </html>
