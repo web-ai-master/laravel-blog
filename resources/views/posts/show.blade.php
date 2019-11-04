@@ -1,8 +1,8 @@
 @extends ('layouts.app')
 
 @section('content')
-     <a herf="/posts/" class="btn btn-default">Go back </a>
-     <h1>{{$post->title}}</h1>
+     <a href="/posts" class="btn btn-default">Go back </a>
+      <h1>{{$post->title}}</h1>
     
      <div>
          {{$post->body}}
